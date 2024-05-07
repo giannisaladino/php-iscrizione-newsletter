@@ -1,3 +1,16 @@
+<?php
+
+$email = $_POST['email'] ?? '';
+
+if(str_contains($email,'@')) {
+    var_dump('Successo');
+} else {
+    var_dump('negato');
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,16 +35,3 @@
 </body>
 </html>
 
-
-<?php
-
-$email = $_POST['email'];
-
-if(str_contains($email,'@')) {
-    var_dump('Successo');
-} else {
-    var_dump('negato');
-}
-
-
-?>
