@@ -1,19 +1,5 @@
 <?php
 require_once (__DIR__ . "/utility.php");
-
-$email = $_POST['email'] ?? '';
-
-
-if (
-    str_contains($email, '@') && // Controllo se c'è @
-    str_contains($email, '.')
-) {
-    $mailOk = true;
-} else {
-    $mailOk = false;
-}
-
-
 ?>
 
 <!DOCTYPE html>
@@ -29,27 +15,28 @@ if (
 
 <body>
     <main>
-        <section>
-            <form action="" method="POST">
-                <input type="email" name="email" id="email" placeholder="Inserisci la tua email">
-                <button>Invia</button>
-            </form>
+        <section class="mt-5 mb-3 text-center">
+            <div class="container">
+                <form action="" method="POST">
+                    <input type="email" name="email" id="email" placeholder="Inserisci la tua email">
+                    <button>Invia</button>
+                </form> 
+            </div>
         </section>
 
         <section>
-            <?php if ($mailOk === true) { ?>
-                <div class="alert alert-primary" role="alert">
-                    ACCESSO <strong>CONSENTITO</strong>
-                </div>
-            <?php } else { ?>
-                <div class="alert alert-primary" role="alert">
-                    ACCESSO <strong>NEGATO</strong>
-                </div>
-            <?php } ?>
-            <!-- <p>
-                <?= test() ?>
-            </p> -->
-
+            <div class="container text-center">
+                <?php if ($mailOk === true) { ?>
+                    <div class="alert alert-primary" role="alert">
+                        <span>ACCESSO <strong>CONSENTITO</strong></span>
+                    </div>
+                <?php } else { ?>
+                    <div class="alert alert-primary" role="alert">
+                        <span>ACCESSO <strong>NEGATO</strong></span>
+                    </div>
+                <?php } 
+                ?>
+            </div>
         </section>
     </main>
 </body>
